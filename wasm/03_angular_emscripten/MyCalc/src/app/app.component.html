@@ -1,6 +1,19 @@
-<button (click)="multiply(10.5, 21.2)">
-  Call multiply(10.5, 21.2)
-</button>
-<div *ngIf="multiplyResult">
-  multiply result is {{ multiplyResult }}
+<div class="example-container">
+  <h2>
+    High Performance Multiplier :-)
+  </h2>
+  <mat-form-field>
+    <input matInput autocomplete="off" placeholder="a" [(ngModel)]="a">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput autocomplete="off" placeholder="b" [(ngModel)]="b">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="multiply()">Multiply</button>
+
+  <br>
+  <div *ngIf="result">
+    Result: {{ result }}
+  </div>
 </div>

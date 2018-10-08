@@ -8,14 +8,17 @@ declare var Module: any;
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  multiplyResult: number;
+  public result: number;
+  public a: number;
+  public b: number;
 
-  public multiply(a: number, b: number): void {
-    this.multiplyResult = Module.ccall(
+  public multiply(): void {
+    // Ideally, this should be in an Angular service
+    this.result = Module.ccall(
       "multiply", // function name
       "number", // return type
       ["number", "number"], // argument types
-      [a, b] // parameters
+      [this.a, this.b] // parameters
     );
   }
 }
