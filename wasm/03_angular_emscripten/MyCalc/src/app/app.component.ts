@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
-
-declare var Module: any;
+import { CalculatorService } from "./calculator.service";
 
 @Component({
   selector: "app-root",
@@ -12,13 +11,9 @@ export class AppComponent {
   public a: number;
   public b: number;
 
+  constructor(private _calculator: CalculatorService) {}
+
   public multiply(): void {
-    // Ideally, this should be in an Angular service
-    this.result = Module.ccall(
-      "multiply", // function name
-      "number", // return type
-      ["number", "number"], // argument types
-      [this.a, this.b] // parameters
-    );
+    this.result = this._calculator.multiply(this.a, this.b);
   }
 }
